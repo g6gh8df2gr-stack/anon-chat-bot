@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fbf8f3"><title>Рядом — анонимные разговоры</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<body>
+<header class="site-header"><a class="brand" href="/" aria-label="Рядом — главная"><span class="brand-icon">р</span>рядом<span class="brand-dot">.</span></a><span class="header-note"><i></i> Место для настоящего разговора</span><span class="age-badge">18+</span></header>
+<main>
+<section id="welcome" class="welcome">
+<div class="intro"><div class="eyebrow">БЕЗ ЛИШНИХ ЗНАКОМСТВ</div><h1>Иногда нужен <br>просто <span>кто-то <br>рядом.</span></h1><p class="lead">Расскажите, как прошёл день. Поделитесь мыслью.<br class="desktop"> Или начните с простого «привет».</p>
+<div class="conversation-art" aria-hidden="true"><div class="art-circle"></div><div class="bubble first">Привет! О чём думаешь? <span>✳</span></div><div class="bubble second">О том, как много всего хочется сказать.</div><div class="bubble third"><b>• • •</b><span>А я готов слушать</span></div><span class="art-caption">Один разговор. Два человека.</span></div>
+<div class="principles"><span><b>01</b> Без аккаунта</span><span><b>02</b> Один на один</span><span><b>03</b> В вашем темпе</span></div></div>
+<div class="form-card"><div class="card-top"><span class="small-icon">↗</span><span>НОВОЕ ЗНАКОМСТВО</span></div><h2>Начнём с вас</h2><p class="muted">Немного деталей — и можно искать собеседника.</p>
+<form id="profile-form">
+<label for="name">Как вас называть?</label><input id="name" name="name" placeholder="Имя или псевдоним" maxlength="30" required autocomplete="off">
+<div class="form-row"><div><label for="gender">Ваш пол</label><select id="gender" name="gender"><option value="female">Женский</option><option value="male">Мужской</option></select></div><div><label for="age">Возраст</label><input id="age" name="age" type="number" min="18" max="99" value="25" required></div></div>
+<div class="divider"><span>КОГО ХОТИТЕ ВСТРЕТИТЬ</span></div>
+<label for="preference">Пол собеседника</label><select id="preference" name="preference"><option value="any">Не имеет значения</option><option value="female">Женский</option><option value="male">Мужской</option></select>
+<label>Возраст собеседника</label><div class="range-row"><div><span>от</span><input aria-label="Минимальный возраст собеседника" name="minAge" type="number" min="18" max="99" value="18" required></div><span class="range-dash">—</span><div><span>до</span><input aria-label="Максимальный возраст собеседника" name="maxAge" type="number" min="18" max="99" value="35" required></div></div>
+<button class="primary find-button" type="submit">Найти собеседника <span>↗</span></button>
+<p class="privacy"><span>♧</span> Собеседник увидит только ваше имя и возраст.</p>
+</form></div></section>
+<section id="search" class="state-view" hidden><div class="search-card"><div class="eyebrow">ВАШ РАЗГОВОР ВПЕРЕДИ</div><div class="radar"><span>р</span></div><h2>Ищем вашего человека<span class="dots">…</span></h2><p id="search-description" class="muted">Подбираем собеседника по вашим пожеланиям.</p><div id="filter-summary" class="filter-summary"></div><div class="honest-note">Если подходящих людей нет, мы продолжим поиск.<br>Соединим вас, только когда совпадут пожелания обоих.</div><button id="cancel" class="secondary">Изменить анкету</button><p class="test-tip">Проверяете сайт в одиночку? Откройте его во второй вкладке и заполните ещё одну анкету.</p></div></section>
+<section id="chat" class="state-view" hidden><div class="chat-card"><header class="chat-header"><div class="avatar" id="avatar"></div><div class="peer-details"><h2 id="peer-title"></h2><span id="peer-status">Вы в диалоге</span></div><button id="next" class="secondary">Следующий <span>↗</span></button><button id="exit" class="icon-button" aria-label="Выйти из чата" title="Выйти из чата">×</button></header><div class="chat-notice">Только вы двое. Начните с «привет».</div><div id="messages" class="messages" role="log" aria-live="polite"></div><div id="ended-note" class="ended-note" hidden>Собеседник завершил разговор. Нажмите «Следующий», чтобы найти нового.</div><form id="message-form" class="composer"><textarea id="message" aria-label="Сообщение" placeholder="Напишите что-нибудь…" maxlength="2000" rows="1" required></textarea><button class="send-button" aria-label="Отправить сообщение">↑</button></form><div class="chat-footnote">Не делитесь личными данными. Будьте бережны друг к другу.</div></div></section>
+<div id="error" class="error" role="alert" hidden></div>
+</main><footer><span>рядом — разговор начинается с вас</span><span>Меньше шума. Больше человеческого.</span></footer>
+</body></html>

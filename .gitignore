@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+*.pem
+*.key
+*.log
+.DS_Store
+coverage/
+# Local machine report and preview capture
+setup.md
+preview.png

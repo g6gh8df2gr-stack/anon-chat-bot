@@ -1,0 +1,11 @@
+.git
+.env
+.env.*
+*.pem
+*.key
+*.log
+node_modules
+setup.md
+preview.png
+coverage
+test

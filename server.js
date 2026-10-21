@@ -36,7 +36,7 @@ export function createApp() {
         const body = await readFile(new URL(`./public/${files[path]}`,import.meta.url));
         res.writeHead(200,{'Content-Type':path.endsWith('.js')?'text/javascript; charset=utf-8':path.endsWith('.css')?'text/css; charset=utf-8':'text/html; charset=utf-8','X-Content-Type-Options':'nosniff'}); return res.end(body);
       }
-      if (req.headers.origin && req.headers.origin !== `http://${req.headers.host}`) return send(403,{error:'Запрос отклонён'});
+      if (req.headers.origin && !['http:', 'https:'].some(protocol => req.headers.origin === `${protocol}//${req.headers.host}`)) return send(403,{error:'Запрос отклонён'});
       let body = {};
       if (req.method === 'POST') {
         let raw = '';
@@ -73,7 +73,10 @@ export function createApp() {
   server.on('close',()=>clearInterval(timer));
   return server;
 }
+const app = createApp();
+export default app;
+
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const port=Number(process.env.PORT)||3000;
-  createApp().listen(port,'127.0.0.1',()=>console.log(`Local: http://localhost:${port}`));
+  app.listen(port,'127.0.0.1',()=>console.log(`Local: http://localhost:${port}`));
 }

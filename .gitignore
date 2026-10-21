@@ -9,3 +9,5 @@ coverage/
 # Local machine report and preview capture
 setup.md
 preview.png
+
+.vercel/
